@@ -1,4 +1,7 @@
-# HR web app
+# HR Web App
+
+<img src="https://raw.githubusercontent.com/fizirvin/hr-app/master/hr-list.png" >
+<img src="https://raw.githubusercontent.com/fizirvin/hr-app/master/hr-form.png" >
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
