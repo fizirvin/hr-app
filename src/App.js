@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
+import WorkersList from './pages/WorkersList.jsx'
+import NewWorker from './components/forms/NewWorker.jsx'
+import { url, opts } from './config'
+import { addWorker } from './actions/mutations'
 
-import './App.css';
+import './styles/app.css';
 
 class App extends Component {
   state={
@@ -14,6 +18,14 @@ class App extends Component {
     const query = `query{
       profiles {
         _id
+        number
+        firstname
+        lastname
+        entry
+        department
+        position
+        area
+        picture_URL
       }
     }`
 
@@ -29,25 +41,36 @@ class App extends Component {
     this.setState({profiles: data.data.profiles })
   }
 
+  newWorker = async (input) =>{
+    addWorker.variables = { input }
+
+    opts.body = JSON.stringify(addWorker)
+    const res = await fetch(url, opts);
+    const data = await res.json();
+    if(data.errors){
+      return console.log(data.errors)
+    } else {
+      const profile = data.data.newProfile
+      const profiles = [...this.state.profiles, profile]
+      return this.setState({profiles})
+    }
+  }
+
 
   render(){
     return (
       <BrowserRouter>
         <div className="App">
           <div className="Content">
-            hola
             <Switch>
-
-              {/* <Route path="/education/certifications/:id" exact component={ props => ( <Certification {...props} 
-              paths={this.state.paths} /> )} 
-              /> */}
+              <Route path="/" exact component={ props => ( <WorkersList {...props} 
+              profiles={this.state.profiles} /> )} 
+              />
+              <Route path="/employees/new" exact component={ props => ( <NewWorker {...props} 
+              newWorker={this.newWorker}
+              /> )} 
+              />
             </Switch>
-          </div>
-          <div className='Options'>
-           
-          </div>
-          <div className='Footer'>
-           
           </div>
         </div>
       
