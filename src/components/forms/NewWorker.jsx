@@ -134,7 +134,7 @@ class NewWorker extends Component {
                         </table>
                         {this.imagePreview()}
                         <Link to="/"><button type="button">Close</button></Link>
-                        <button type="button" onClick={this.showState}>state</button>
+                        {/* <button type="button" onClick={this.showState}>state</button> */}
                         <input type="submit" value="Submit"></input>
                     </form>
                 </div>

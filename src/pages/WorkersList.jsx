@@ -27,6 +27,7 @@ class WorkersList extends Component{
             <div className='workerList_container'>
                 <h2 className='section_title'>Employees List</h2>
                 <div className='controls'>
+                    <div className='items_count'>items: {this.state.profiles.length}</div>
                     <Link to='/employees/new'><button type='button'>Add Employee</button></Link>
                 </div>
                 

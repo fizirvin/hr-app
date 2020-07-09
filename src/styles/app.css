@@ -139,14 +139,21 @@
 }
 
 .controls{
+  display: flex;
   width: 50vw;
   
   margin-left: 60px;
-  text-align: right;
+  
   margin-bottom: 4px;
+  justify-content: space-between;
 }
 
 .section_title{
   margin-left: 60px;
+}
+
+.items_count{
+  font-style: italic;
+  font-size: 90%;
 }
 
