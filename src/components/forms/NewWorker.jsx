@@ -68,7 +68,7 @@ class NewWorker extends Component {
      
         const file = e.target.files[0]
         const filePath = e.target.value
-        if(file.size > 10000){
+        if(file.size > 50000){
             const input = document.getElementById('image')
             input.value = ''
             console.log('too much', input.value)
