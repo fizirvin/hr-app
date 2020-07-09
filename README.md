@@ -3,6 +3,10 @@
 <img src="https://raw.githubusercontent.com/fizirvin/hr-app/master/hr-list.png" >
 <img src="https://raw.githubusercontent.com/fizirvin/hr-app/master/hr-form.png" >
 
+Single Page App for the HR profiles Database. It is a collaborative database which could be updated or consulted by anybody of the HR administrators team.
+
+The frontend calls the backend to get the list of the employees database, which new data could be stored or updated through forms. It stores Employee data relative to the position, ad store the employee photo.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
