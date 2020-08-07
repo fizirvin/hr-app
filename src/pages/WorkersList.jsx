@@ -1,14 +1,17 @@
-import React, { Component } from 'react';
+import React, { useEffect}  from 'react'
+import { connect } from 'react-redux'
+import { fetchProfiles } from '../actions'
 import Worker from '../components/worker.jsx'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-class WorkersList extends Component{
-    state ={
-        profiles: this.props.profiles
-    }
+const WorkersList = ({profiles, fetchProfiles}) =>{
+    useEffect(() =>{
+        fetchProfiles();
+        return console.log('hola, todo bien')
+    },[fetchProfiles])
 
-    renderProfiles = () =>{
-        return this.state.profiles.map( profile =>
+    const renderProfiles = () =>{
+        return profiles.map( profile =>
             <Worker key={profile._id} 
                 number={profile.number}
                 firstname={profile.firstname}
@@ -22,19 +25,23 @@ class WorkersList extends Component{
         )
     }
 
-    render(){
-        return (
-            <div className='workerList_container'>
-                <h2 className='section_title'>Employees List</h2>
-                <div className='controls'>
-                    <div className='items_count'>items: {this.state.profiles.length}</div>
-                    <Link to='/employees/new'><button type='button'>Add Employee</button></Link>
-                </div>
-                
-                {this.renderProfiles()}
+    
+    return (
+        <div className='workerList_container'>
+            <h2 className='section_title'>Employees List</h2>
+            <div className='controls'>
+                <div className='items_count'>items: {profiles.length}</div>
+                <Link to='/employees/new'><button type='button'>Add Employee</button></Link>
             </div>
-        )
-    }
+            
+            {renderProfiles()}
+        </div>
+    )
+    
 }
 
-export default WorkersList
+const mapStateToProps = state =>({
+    profiles: state.profiles
+})
+
+export default connect(mapStateToProps, {fetchProfiles})(WorkersList)
