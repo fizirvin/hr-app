@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const WorkersList = ({profiles, fetchProfiles}) =>{
     useEffect(() =>{
         fetchProfiles();
-        return console.log('hola, todo bien')
+        return 
     },[fetchProfiles])
 
     const renderProfiles = () =>{
@@ -21,6 +21,7 @@ const WorkersList = ({profiles, fetchProfiles}) =>{
                 area={profile.area}
                 position={profile.position}
                 picture_URL={profile.picture_URL}
+                profile={profile}
             />
         )
     }

@@ -5,6 +5,13 @@ const profilesReducer = (state = [], action) =>{
     return state
 }
 
+const profileReducer = (selected = null, action) =>{
+    if(action.type === 'PROFILE_SELECTED'){
+        return action.payload
+    }
+    return selected
+}
+
 export {
-    profilesReducer
+    profilesReducer, profileReducer
 }

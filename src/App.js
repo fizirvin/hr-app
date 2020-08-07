@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
 import WorkersList from './pages/WorkersList.jsx'
 import NewWorker from './components/forms/NewWorker.jsx'
+import Profile from './components/Profile'
 // import { url, opts } from './config'
 // import { addWorker } from './mutations'
 
@@ -61,17 +62,13 @@ const App = () =>{
         <div className="App">
           <div className="Content">
             <Switch>
-              <Route path="/" exact component={ props => ( <WorkersList {...props} 
-               /> )} 
-              />
-              <Route path="/employees/new" exact component={ props => ( <NewWorker {...props} 
-              
-              /> )} 
+              <Route path="/" exact component={ props => ( <WorkersList {...props} /> )} />
+              <Route path="/employees/new" exact component={ props => ( <NewWorker {...props} /> )} />
+              <Route path="/profile" exact component={ props => ( <Profile {...props} /> )} 
               />
             </Switch>
           </div>
         </div>
-      
       </BrowserRouter>
   );
   
