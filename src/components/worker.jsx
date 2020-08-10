@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import update from '../images/list.png'
 import { connect } from 'react-redux'
@@ -8,7 +8,6 @@ const Worker = ({picture_URL, lastname, firstname, number, entry, position, area
 
     
         return (
-            
             <div className='worker_container'>
                 <table className='worker_table'>
                     <tbody>
@@ -20,15 +19,12 @@ const Worker = ({picture_URL, lastname, firstname, number, entry, position, area
                             <td rowSpan='2' colSpan='1' className='update_field'><Link to='/profile' onClick={()=>selectProfile(profile)}><img alt="" height= "26" src={update}/></Link></td>
                         </tr>
                         <tr>
-                            
                             <td rowSpan='1' colSpan='1' className='position_field'>{position}</td>
                             <td rowSpan='1' colSpan='1' className='area_field'>Area: {area}</td>
                             <td rowSpan='1' colSpan='2' className='department_field'>Department of: {department}</td>
                         </tr>
                     </tbody>
-                    
                 </table>
-                
             </div>
         )
     }
